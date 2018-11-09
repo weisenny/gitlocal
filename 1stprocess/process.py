@@ -17,18 +17,23 @@ class PCB(object):
 def find_pri_max():
 
     max=-100
-    maxp=-1000
+    maxp=-100
     j=0
-    for j in [1,2,3,4,5]:
+    for j in [0,1,2,3,4]:
         if LofPCB[j].pri > maxp :
             max = j
             maxp=LofPCB[j].pri
     return max
+def bubbleSort():
+    for i in  range(len(LofPCB)-1):    # 这个循环负责设置冒泡排序进行的次数
+        for j in  range(len(LofPCB)-i-1):  # ｊ为列表下标
+            if LofPCB[j].pri < LofPCB[j+1].pri:
+                LofPCB[j], LofPCB[j+1] = LofPCB[j+1], LofPCB[j]
 
 def show(t):
     print("第"+str(t)+"次运行结果")
     l="done"
-    for i in [1, 2, 3, 4, 5]:
+    for i in [0,1, 2, 3, 4]:
         if LofPCB[i].pri==-1000:
             print(LofPCB[i].ID, LofPCB[i].runtime, l, LofPCB[i].state)
         else:
@@ -46,7 +51,8 @@ def run():
     show(0)
     x=1
     for i in range(1,timemax+1):
-        x=find_pri_max()
+        bubbleSort()
+        x=0
         LofPCB[x].pri = LofPCB[x].pri-1
         LofPCB[x].runtime = LofPCB[x].runtime - 1
         LofPCB[x].state = 'P'
@@ -68,14 +74,13 @@ ID=0
 runtime=0
 pri=0
 i=1
-pcb=PCB(0, 0,0,'R')
-LofPCB.append(pcb)
 
-for i in [1,2,3,4,5]:
 
-    ID      = 'P'+ str(i);
-    runtime = input("请输入P" + str(i)  + " PCB块时间：");
-    pri     = input("请输入P" + str(i)  + " PCB块优先级：");
+for i in [0,1,2,3,4]:
+    j=i+1
+    ID      = 'P'+ str(j);
+    runtime = input("请输入P" + str(j)  + " PCB块时间：");
+    pri     = input("请输入P" + str(j)  + " PCB块优先级：");
     pcb=PCB(ID, int(runtime),int(pri),'R')
     LofPCB.append(pcb)
     timemax=timemax + int(runtime)
