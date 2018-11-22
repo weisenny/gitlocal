@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>视频播放</title>
+</head>
+<body>
+{% block content %}
+<h3>GRE</h3>
+    <h2>AW</h2>
+        {% for course in courses %}
+          <a href="/play/?course={{ course }}">{{ course }}</a>
+        {% endfor %}
+{% endblock %}
+</body>
+</html>
