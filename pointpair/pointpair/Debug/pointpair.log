@@ -1,4 +1,6 @@
-﻿  stdafx.cpp
-  pointpair.cpp
-c:\users\weise\documents\github\gitlocal\pointpair\pointpair\pointpair.cpp(154): warning C4244: “初始化”: 从“time_t”转换到“unsigned long”，可能丢失数据
-c:\users\weise\documents\github\gitlocal\pointpair\pointpair\pointpair.cpp(167): error C4700: 使用了未初始化的局部变量“test_turn”
+﻿  pointpair.cpp
+c:\users\weise\documents\github\gitlocal\pointpair\pointpair\pointpair.cpp(147): warning C4101: “i”: 未引用的局部变量
+c:\users\weise\documents\github\gitlocal\pointpair\pointpair\pointpair.cpp(186): warning C4326: “main”的返回类型应为“int”而非“void”
+c:\users\weise\documents\github\gitlocal\pointpair\pointpair\pointpair.cpp(190): warning C4244: “初始化”: 从“time_t”转换到“unsigned long”，可能丢失数据
+c:\users\weise\documents\github\gitlocal\pointpair\pointpair\pointpair.cpp(195): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+  pointpair.vcxproj -> C:\Users\weise\Documents\GitHub\gitlocal\pointpair\Debug\pointpair.exe
