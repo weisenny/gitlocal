@@ -6,11 +6,11 @@
 
 model::model()
 {
-	layers[0].setlayer('s', 2, 5, 6, 7, 10);
-	layers[1].setlayer('y', 12, 15, 16, 17, 47);
-	layers[2].setlayer('f', 12, 25, 16, 27, 30);
-	layers[3].setlayer('3', 3, 6, 16, 27, 7);
-	layers[4].setlayer('g', 11, 12, 26, 28, 330);
+	layers.push_back(layer('s', 2, 5, 6, 7, 10));
+	layers.push_back(layer('y', 12, 15, 16, 17, 47));
+	layers.push_back(layer('f', 12, 25, 16, 27, 30));
+	layers.push_back(layer('3', 3, 6, 16, 27, 7));
+	layers.push_back(layer('g', 11, 12, 26, 28, 330));
 	ini();
 	length = 5;
 
@@ -18,6 +18,7 @@ model::model()
 
 void model::ini()
 {
+	
 	for (int j = 0; j < MAXX; j++)
 		for (int k = 0; k < MAXY; k++)
 			screen[j][k] = ' ';
@@ -36,7 +37,15 @@ void model::ini()
 		screen[MAXX - 1][m] = '*';
 	}
 }
-
+void model::show()
+{
+	for (int i = 0; i < MAXX; i++)
+	{
+		for (int j = 0; j < MAXY; j++)
+			cout << screen[i][j];
+		cout << endl;
+	}
+}
 
 int cmp(const void *a, const void *b)
 
@@ -45,11 +54,14 @@ int cmp(const void *a, const void *b)
 	return  (*(layer *)a).priority < (*(layer *)b).priority ? 1 : -1;//big -> small
 }
 
-void model::append(char a, int b, int c, int d, int e, int f)
+int  model::append(char a, int b, int c, int d, int e, int f)
 {
+	if (findit(a)>0)
+		return 0;
 
-	layers[length].setlayer(a, b, c, d, e, f);
+	layers.push_back(layer(a, b, c, d, e, f));
 	length = length + 1;
+	return 1;
 }
 
 int model::findit(char a)
@@ -72,7 +84,9 @@ int  model::remove(char a)
 	{
 		int i = findit(a);
 		layers[i].priority = -100;
-		qsort(layers, length, sizeof(layers[0]), cmp);
+		//vector <layer> ::iterator it;
+	//	it = remove(layers.begin(),layers.end(),;
+		layers.erase(layers.begin() + i);
 		//layers[length - 1] = layers[length];
 		length = length - 1;
 		//cout << length << layers[0].priority << endl;

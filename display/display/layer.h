@@ -11,6 +11,6 @@ public:
 	int  priority;
 
 
-	void setlayer(char a, int b, int c, int d, int e, int f);
+	layer(char a, int b, int c, int d, int e, int f);
 	
 };
