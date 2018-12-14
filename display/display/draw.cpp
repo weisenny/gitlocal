@@ -13,7 +13,7 @@ struct cmp1
 
 	{
 		//(*(In *)a).data > (*(In *)b).data ? 1 : -1
-		return  a.priority < b.priority;
+		return  a.priority > b.priority;
 			//(*(layer *)a).priority < (*(layer *)b).priority ? 1 : -1;//big -> small
 	}
 };
@@ -52,27 +52,4 @@ void draw::todraw(model m)
 }
 
 
-void draw::newdraw(model mo)
-{
-	cout << "e";
-	for (int j = 0; j < MAXX; j++)
-		for (int k = 0; k < MAXY; k++)
-			mo.screen[j][k] = ' ';
 
-	for (int m = 0; m < MAXX; m++)
-	{
-
-		mo.screen[m][0] = '*';
-		mo.screen[m][MAXY - 1] = '*';
-
-
-	}
-	for (int m = 0; m < MAXY; m++)
-	{
-		mo.screen[0][m] = '*';
-		mo.screen[MAXX - 1][m] = '*';
-	}
-
-
-
-}

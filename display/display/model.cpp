@@ -37,6 +37,7 @@ void model::ini()
 		screen[MAXX - 1][m] = '*';
 	}
 }
+/*
 void model::show()
 {
 	for (int i = 0; i < MAXX; i++)
@@ -45,7 +46,7 @@ void model::show()
 			cout << screen[i][j];
 		cout << endl;
 	}
-}
+}*/
 
 int cmp(const void *a, const void *b)
 

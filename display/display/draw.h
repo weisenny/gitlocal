@@ -4,13 +4,9 @@ class draw
 {
 public:
 
-	draw();
+	draw();					//默认构造函数
+	void todraw(model m);	//绘制函数
 
-	
-	void todraw(model m);
-	
-
-	void newdraw(model mo);
 	
 		
 };
